@@ -14,6 +14,7 @@
     </properties>
 
     <packaging>war</packaging>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -36,6 +37,18 @@
             <artifactId>jcl-over-slf4j</artifactId>
             <version>${jcl-over-slf4j.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>1.7.13</version>
+        </dependency>
+
+
         <!-- Spring Core -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -50,18 +63,27 @@
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
-
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-resources-plugin</artifactId>
+            <version>2.7</version>
         </dependency>
     </dependencies>
 
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/webapp</directory>
+            </resource>
+        </resources>
     <plugins>
         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -86,7 +108,7 @@
             <version>1.7.0.1.1</version>
             <configuration>
                 <sourceDirectory>${project.basedir}/src/main/resources/less</sourceDirectory>
-                <outputDirectory>src/main/webapp/css</outputDirectory>
+                <outputDirectory>src/main/webapp/pages/css</outputDirectory>
                 <compress>true</compress>
                 <includes>
                     <include>base.less</include>
@@ -100,6 +122,7 @@
                 </execution>
             </executions>
         </plugin>
+
         <!-- For Maven Tomcat Plugin -->
         <plugin>
             <groupId>org.apache.tomcat.maven</groupId>

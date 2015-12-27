@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Startup</title>
-    <link href="../css/base.css"" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/base.css">
 </head>
 <body>
 <h1>This is a simple java servlet.</h1>
