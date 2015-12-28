@@ -108,7 +108,7 @@
             <version>1.7.0.1.1</version>
             <configuration>
                 <sourceDirectory>${project.basedir}/src/main/resources/less</sourceDirectory>
-                <outputDirectory>src/main/webapp/pages/css</outputDirectory>
+                <outputDirectory>src/main/webapp/resources/css</outputDirectory>
                 <compress>true</compress>
                 <includes>
                     <include>base.less</include>
