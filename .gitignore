@@ -7,3 +7,5 @@ lib
 
 target
 node_modules
+node
+bower_components
