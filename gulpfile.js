@@ -1,4 +1,5 @@
 var gulp           = require('gulp');
+var sass           = require('gulp-sass');
 var concat         = require('gulp-concat');
 var concatVendor   = require('gulp-concat-vendor');
 var uglify         = require('gulp-uglify');
@@ -48,7 +49,13 @@ gulp.task('copyFonts', function() {
         .pipe(gulp.dest('src/main/webapp/resources/vendor/fonts'));
 });
 
+gulp.task('sass', function () {
+    gulp.src('src/main/resources/sass/**/*.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest('src/main/webapp/resources/css'));
+});
+
 // Default Task
 gulp.task('default', function () {
-    runSequence('lib-js-files', 'lib-css-files', 'index', 'copyFonts');
+    runSequence('lib-js-files', 'lib-css-files','sass', 'index', 'copyFonts');
 });
